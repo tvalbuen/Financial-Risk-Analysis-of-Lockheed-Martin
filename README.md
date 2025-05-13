@@ -1,78 +1,83 @@
-# 🌬️ Wind Speed Forecasting in Madrid – Time Series Analysis
+# 📊 Financial Risk Analysis of Lockheed Martin (LMT) Using Time Series Models
 
-## 📌 Project Overview
+## 🗂 Project Overview
 
-This project performs a time series analysis of **wind speed in Madrid** using historical weather data spanning from **2014 to 2024**, obtained via the **Open-Meteo API**. The goal is to explore temporal trends and seasonality and forecast wind speed for the year **2025** using robust statistical models.
+This project performs a financial time series analysis of **Lockheed Martin (LMT)** stock data using models such as **ARCH** and **GARCH**. The focus is on **volatility modeling**, **Value at Risk (VaR)**, and **Expected Shortfall (ES)** to quantify and interpret downside financial risk over a 10-year historical period (2014–2024). Data is retrieved using the `yfinance` API.
 
 ---
 
 ## 🎯 Objectives
 
-- Retrieve and process a 10-year weather dataset from the Open-Meteo API.
-- Conduct Exploratory Data Analysis (EDA) to uncover patterns and seasonal effects.
-- Apply and compare time series models: **ARMA**, **ARIMA**, and **SARIMA**.
-- Perform residual diagnostics and statistical validation.
-- Generate reliable wind speed forecasts for 2025.
+- Analyze the historical stock prices of Lockheed Martin over a decade.
+- Apply time series modeling (ARCH/GARCH) to understand volatility dynamics.
+- Quantify investment risk through statistical metrics like VaR and ES.
+- Assess the impact of geopolitical events on stock volatility.
 
 ---
 
 ## 🛠️ Technologies & Tools Used
 
-| Tool / Library        | Purpose                                      |
-|-----------------------|----------------------------------------------|
-| `Python`              | Core programming language                    |
-| `Pandas`, `NumPy`     | Data processing and numerical operations     |
-| `Matplotlib`          | Data visualization                           |
-| `statsmodels`         | Time series modeling (ARIMA, SARIMA, etc.)   |
-| `openmeteo_requests`  | API data retrieval from Open-Meteo           |
-| `requests_cache`      | Caching API responses                        |
-| `retry_requests`      | Retrying failed API calls                    |
-| `ADF Test`            | Stationarity testing                         |
-| `Ljung-Box Test`      | Residual independence check                  |
-| `ACF` / `PACF`        | Autocorrelation diagnostics                  |
-| `AIC`, `BIC`          | Model evaluation metrics                     |
+| Tool / Library        | Purpose                                           |
+|-----------------------|---------------------------------------------------|
+| `Python`              | Core programming language                         |
+| `pandas`, `numpy`     | Data manipulation and numerical computation       |
+| `matplotlib`          | Data visualization                                |
+| `yfinance`            | Accessing historical stock price data from Yahoo  |
+| `arch` (Python lib)   | Volatility modeling (ARCH/GARCH)                  |
+| `scipy.stats`         | Statistical calculations (e.g., normal VaR/ES)    |
 
 ---
 
-## 🧪 Project Workflow
+## 💡 Project Highlights
 
-### 1. Dataset Collection
-- Weather data extracted from Open-Meteo API for Madrid (2014–2024).
-- Focused features: wind speed, temperature, and daylight duration.
-- API access optimized using caching and retry mechanisms.
+### 🔍 1. Dataset Overview
 
-### 2. Exploratory Data Analysis (EDA)
-- Visual inspection of wind speed over time.
-- Detection and handling of missing values and outliers.
-- Decomposition of time series into trend, seasonality, and residuals (additive & multiplicative).
-- Analysis using ACF and PACF to identify autocorrelation and lag effects.
+- **Ticker**: Lockheed Martin Corporation (LMT)
+- **Time Range**: 2014 to 2024
+- **Fields**:
+  - Price data: Open, High, Low, Close, Adjusted Close
+  - Returns: Log returns for stationarity
+  - Volatility metrics: GARCH-based conditional volatility
+  - Risk metrics: Value at Risk (VaR) and Expected Shortfall (ES)
 
-### 3. Stationarity Testing
-- Conducted Augmented Dickey-Fuller (ADF) tests to assess stationarity.
-- Applied differencing and transformations to stabilize variance and mean.
+### 🌍 2. Contextual Relevance
 
-### 4. Time Series Modeling
-- Compared multiple models:
-  - **ARMA**: Autoregression and Moving Average.
-  - **ARIMA**: Integrated model accounting for non-stationarity.
-  - **SARIMA**: Incorporates seasonal components.
-- Model selection based on AIC, BIC, residuals, and visual fit.
+Lockheed Martin, as a global defense contractor, shows volatility patterns closely tied to geopolitical events:
 
-### 5. Model Evaluation
-- Residual diagnostics using Ljung-Box test to assess white noise.
-- Visualization of residuals and forecast error.
-- Ensured residuals had no autocorrelation.
+- COVID-19 market crash
+- Russia–Ukraine war
+- Israel–Palestine escalation
+- Global defense spending surges
 
-### 6. Forecasting
-- Forecasted wind speed for the year 2025 using the best-fit model.
-- Provided confidence intervals to account for prediction uncertainty.
+These periods offer practical insights into how geopolitical tensions influence financial risk in defense stocks.
+
+### 📉 3. Time Series Modeling
+
+- Applied **ARCH** and **GARCH(1,1)** models to forecast conditional volatility.
+- Visualized volatility clustering and persistence.
+- Evaluated models using AIC and residual diagnostics.
+
+### 🧮 4. Risk Estimation
+
+- **Value at Risk (VaR)** computed at 95% and 99% confidence levels.
+- **Expected Shortfall (ES)** calculated to capture tail risk beyond VaR.
+- Results help in quantifying potential extreme losses for investors and funds.
 
 ---
 
-## 📈 Results & Insights
+## 📈 Insights
 
-- Seasonal ARIMA models produced accurate forecasts aligned with historical patterns.
-- Model diagnostics confirmed robustness with residuals exhibiting white noise behavior.
-- The methodology can be extended to other locations and weather variables.
+- LMT exhibits **volatility clustering** typical of financial time series.
+- **ARCH/GARCH** models effectively capture risk spikes around global events.
+- **VaR and ES** provide actionable risk thresholds for portfolio management.
+- Defense stocks react strongly to real-world tensions—valuable for risk-sensitive investing.
+
+---
+
+## 👨‍💼 Use Cases
+
+- **Investors**: Adjust portfolios based on predicted risk under stress scenarios.
+- **Risk Analysts**: Use GARCH models to measure time-varying volatility.
+- **Academics**: Explore the impact of political events on defense sector risk.
 
 ---
